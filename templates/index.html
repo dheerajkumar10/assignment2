@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <h1>Dheeraj Kumar Tatipamula -03485</h1>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        fieldset {
+            background-color: #eeeeee;
+        }
+
+        legend {
+            background-color: gray;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        input {
+            margin: 5px;
+        }
+    </style>
+    <form action="/Clusters" method="post" enctype="multipart/form-data">
+        <p>Divide the Earthquakes into 3 clusters</p>
+        <input type="submit" value="Cluster" name="Get_clusters">
+
+        <h3> Earthquakes in cluster 1</h3>
+        <table>
+            <tr>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            {% for rec in cluster %}
+            <tr>
+                <th>{{ rec[0] }}</th>
+                <th>{{ rec[1] }}</th>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <h3> Earthquakes in cluster 2</h3>
+        <table>
+            <tr>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            {% for rec in cluster2 %}
+            <tr>
+                <th>{{ rec[0] }}</th>
+                <th>{{ rec[1] }}</th>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <h3> Earthquakes in cluster 3</h3>
+        <table>
+            <tr>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            {% for rec in cluster3 %}
+            <tr>
+                <th>{{ rec[0] }}</th>
+                <th>{{ rec[1] }}</th>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </form>
+
+    <div>
+        <form method="get" action="/Filter">
+
+            <input type="number" step="any" name="magnitude" placeholder="magnitude" />
+            <label for="magnitude">: <= Magnitude</label> <br>
+                    <input type="number" step="any" name="longitude" placeholder="longitude" />
+                    <input type="number" step="any" name="latitude" placeholder="latitude" />
+                    <input type="number" name="distance" placeholder="distance" />
+                    <br>
+                    <br>
+                    <input type="number" step="any" name="lower_mag" placeholder="lower_magnitude" />
+                    <input type="number" step="any" name="higher_mag" placeholder="higher_magnitude" />
+                    <input type="date" name="from_date" />
+                    <input type="date" name="to_date" />
+                    <input type="time" name="from_time" />
+                    <input type="time" name="to_time" />
+                    <!-- <label>
+                likelihood : {{likelihood}}
+            </label> -->
+                    </br>
+
+                    <input type="submit" value="Search" name="search">
+                    <!-- <button class="input-button">Enter</button> -->
+                    <table>
+                        <tr>
+                            <th>Place</th>
+                            <th>Time</th>
+                            <th>Magnitude</th>
+                        </tr>
+                        {% for rec in num %}
+                        <tr>
+                            <th>{{ rec['place'] }}</th>
+                            <th>{{ rec['time'] }}</th>
+                            <th>{{ rec['mag'] }}</th>
+                        </tr>
+                        {% endfor %}
+                    </table>
+        </form>
+    </div>
+
+</body>
+
+</html>

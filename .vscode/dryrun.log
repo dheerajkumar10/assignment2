@@ -1,0 +1,4 @@
+make.exe -f c:\Users\dheer\OneDrive\Desktop\ADB\assignment2\Makefile -C D:\S2022_project_2_code_given_v1\S2022_project_2_code_given_v1\src --dry-run --always-make --keep-going --print-directory
+'make.exe' is not recognized as an internal or external command,
+operable program or batch file.
+
