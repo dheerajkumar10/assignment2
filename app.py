@@ -40,9 +40,9 @@ def random2():
     for i in range(0, number):
         query = "SELECT * FROM[dbo].[earthquake]"
         if(r.exists("task1")):
-            r.get("task1")
-            res = json.loads(r.get("task1"))
+            res = r.get("task1")
         else:
+            print("redis")
             data = list()
             cursor.execute(query)
             res = cursor.fetchall()
@@ -51,6 +51,7 @@ def random2():
             result1 = json.dumps(data)
             r.set("task1", result1)
     end = time.time()
+    res = json.loads(res)
     return render_template('random.html', num=res, data=end-start)
 
 
