@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <h1>Dheeraj Kumar Tatipamula -03485</h1>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        fieldset {
+            background-color: #eeeeee;
+        }
+
+        legend {
+            background-color: gray;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        input {
+            margin: 5px;
+        }
+    </style>
+    <div>
+        time taken to randomly select queries is <h4>{{data}}</h4> seconds
+    </div>
+    <table>
+        <tr>
+            <th>time</th>
+            <th>latitide</th>
+            <th>longitude</th>
+            <th>id</th>
+            <th>place</th>
+            <th>magnitude</th>
+        </tr>
+        {% for rec in num %}
+        <tr>
+            <th>{{ rec['time'] }}</th>
+            <th>{{ rec['latitude'] }}</th>
+            <th>{{ rec['longitude'] }}</th>
+            <th>{{ rec['id'] }}</th>
+            <th>{{ rec['place'] }}</th>
+            <th>{{ rec['mag'] }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
